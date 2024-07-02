@@ -54,6 +54,7 @@ list_of_messages = [
 def generate_feedback_box():
     box_width = 60
 
+    
     # Select a random message
     message = random.choice(list_of_messages)
 

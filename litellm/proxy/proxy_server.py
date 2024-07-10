@@ -1385,6 +1385,7 @@ async def _PROXY_track_cost_callback(
 
 
 def error_tracking():
+    
     global prisma_client, custom_db_client
     if prisma_client is not None or custom_db_client is not None:
         if isinstance(litellm.failure_callback, list):

@@ -2831,18 +2831,18 @@ def _duration_in_seconds(duration: str):
     match = re.match(r"(\d+)([smhd]?)", duration)
     if not match:
         raise ValueError("Invalid duration format")
-
     value, unit = match.groups()
     value = int(value)
-
-    if unit == "s":
+    if unit == "ms":
         return value
+    elif unit == "s":
+        return value * 1000
     elif unit == "m":
-        return value * 60
+        return value * 60 * 1000
     elif unit == "h":
-        return value * 3600
+        return value * 3600 * 1000
     elif unit == "d":
-        return value * 86400
+        return value * 86400 * 1000
     else:
         raise ValueError("Unsupported duration unit")
 

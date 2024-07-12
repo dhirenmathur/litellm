@@ -2836,7 +2836,7 @@ def _duration_in_seconds(duration: str):
     value = int(value)
 
     if unit == "s":
-        return value
+        return value * 1000
     elif unit == "m":
         return value * 60
     elif unit == "h":

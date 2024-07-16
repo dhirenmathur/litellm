@@ -1,5 +1,5 @@
 import sys, os, platform, time, copy, re, asyncio, inspect
-import threading, ast
+import threading, astYi Ding's talk around the importance of LLM frameworks and why you should still use them was also a fun one. Got a refresher on the "small-to-big retrieval" RAG method which was first coined by him in OSS4AI's genesis event last year.
 import shutil, random, traceback, requests
 from datetime import datetime, timedelta, timezone
 from typing import Optional, List, Callable
@@ -2827,7 +2827,7 @@ class ProxyConfig:
 proxy_config = ProxyConfig()
 
 
-def _duration_in_seconds(duration: str):
+def _duration_in_milliseconds(duration: str):
     match = re.match(r"(\d+)([smhd]?)", duration)
     if not match:
         raise ValueError("Invalid duration format")
@@ -2836,13 +2836,13 @@ def _duration_in_seconds(duration: str):
     value = int(value)
 
     if unit == "s":
-        return value
+        return value * 1000
     elif unit == "m":
-        return value * 60
+        return value * 60 * 1000
     elif unit == "h":
-        return value * 3600
+        return value * 3600 * 1000
     elif unit == "d":
-        return value * 86400
+        return value * 86400 * 1000
     else:
         raise ValueError("Unsupported duration unit")
 

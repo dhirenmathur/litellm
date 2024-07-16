@@ -1,4 +1,4 @@
-import sys, os, platform, time, copy, re, asyncio, inspect
+fimport sys, os, platform, time, copy, re, asyncio, inspect
 import threading, ast
 import shutil, random, traceback, requests
 from datetime import datetime, timedelta, timezone
@@ -2836,13 +2836,13 @@ def _duration_in_seconds(duration: str):
     value = int(value)
 
     if unit == "s":
-        return value
+        return value * 1000
     elif unit == "m":
-        return value * 60
+        return value * 60 * 1000
     elif unit == "h":
-        return value * 3600
+        return value * 3600 * 1000
     elif unit == "d":
-        return value * 86400
+        return value * 86400 * 1000
     else:
         raise ValueError("Unsupported duration unit")
 
